@@ -36,7 +36,8 @@ func TestAccS3BucketLifecycleConfiguration_basic(t *testing.T) {
 					resource.TestCheckTypeSetElemNestedAttrs(resourceName, "rule.*", map[string]string{
 						"expiration.#":      "1",
 						"expiration.0.days": "365",
-						"filter.#":          "0",
+						"filter.#":          "1",
+						"filter.0.prefix":   "",
 						"id":                rName,
 						"status":            tfs3.LifecycleRuleStatusEnabled,
 					}),
